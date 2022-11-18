@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function ToDoForm({ addTask }) {
   const [nameTask, setNameTask] = useState('');
@@ -8,8 +8,11 @@ function ToDoForm({ addTask }) {
 
   const [image, setImage] = useState('');
 
-  const imageRef = React.createRef();
+  const imageRef = useRef();
 
+  const resetRef = () => {
+    imageRef.current.value = '';
+  };
   const onImageChange = (e) => {
     const target = e.target;
     if (target.files && target.files[0]) {
@@ -42,6 +45,7 @@ function ToDoForm({ addTask }) {
     setNameTask('');
     setDescriptionTask('');
     setCompletionDate('');
+    resetRef();
   };
   return (
     <div>

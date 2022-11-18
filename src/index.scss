@@ -121,7 +121,7 @@ $baseFontSize: 16;
 }
 
 .app .item-todo .item-delete {
-  display: inline-block;
+  display: block;
   cursor: pointer;
   float: right;
   font-size: 22px;
@@ -144,7 +144,7 @@ $baseFontSize: 16;
   background: #abe4d8;
   border-radius: 20px 20px;
   padding: 30px;
-  width: calc(60% - 212px);
+  width: 370px;
 }
 
 input {
@@ -156,4 +156,3 @@ input {
   background: #814cb9;
   border-radius: 15px;
 }
-
