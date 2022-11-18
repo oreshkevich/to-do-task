@@ -10,15 +10,12 @@ function App() {
 
   const addTask = (nameTask) => {
     if (nameTask.nameTask.length > 0) {
-      console.log(nameTask);
-
       const newItem = {
         id: new Date().getTime(),
         complete: nameTask.done,
         ...nameTask,
       };
       setTodos([...todos, newItem]);
-      console.log(todos);
     }
   };
 

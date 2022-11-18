@@ -14,11 +14,9 @@ function ToDoForm({ addTask }) {
     const target = e.target;
     if (target.files && target.files[0]) {
       const img = target.files[0];
-      console.log(img.name);
       setImage(img.name);
     }
   };
-  console.log(done);
   const dataChange = (e) => {
     const d1 = new Date();
     const d2 = new Date(e.target.value);
