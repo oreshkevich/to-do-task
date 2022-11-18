@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ToDo from './components/ToDo';
 import ToDoForm from './components/ToDoForm';
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  // const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    return JSON.parse(localStorage.getItem('todos')) || [];
+  });
 
   const addTask = (nameTask) => {
     if (nameTask.nameTask.length > 0) {
@@ -11,7 +14,7 @@ function App() {
 
       const newItem = {
         id: new Date().getTime(),
-        complete: false,
+        complete: nameTask.done,
         ...nameTask,
       };
       setTodos([...todos, newItem]);
@@ -30,6 +33,10 @@ function App() {
       ),
     ]);
   };
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <main className="container content">

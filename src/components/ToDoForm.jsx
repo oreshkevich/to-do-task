@@ -4,6 +4,8 @@ function ToDoForm({ addTask }) {
   const [nameTask, setNameTask] = useState('');
   const [descriptionTask, setDescriptionTask] = useState('');
   const [completionDate, setCompletionDate] = useState('');
+  const [done, setDone] = useState(false);
+
   const [image, setImage] = useState('');
 
   const imageRef = React.createRef();
@@ -16,6 +18,14 @@ function ToDoForm({ addTask }) {
       setImage(img.name);
     }
   };
+  console.log(done);
+  const dataChange = (e) => {
+    const d1 = new Date();
+    const d2 = new Date(e.target.value);
+    let same = d1.getTime() > d2.getTime();
+    setDone(same);
+    setCompletionDate(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +33,7 @@ function ToDoForm({ addTask }) {
       nameTask: nameTask,
       descriptionTask: descriptionTask,
       completionDate: completionDate,
+      done: done,
       image: image,
     };
     addTask(newCard);
@@ -82,7 +93,7 @@ function ToDoForm({ addTask }) {
             type="date"
             value={completionDate}
             name="date"
-            onChange={(e) => setCompletionDate(e.target.value)}
+            onChange={dataChange}
           />
           <p className="small"></p>
         </div>

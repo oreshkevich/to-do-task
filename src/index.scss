@@ -76,11 +76,6 @@ $baseFontSize: 16;
   @return $pixels / $context * 1rem;
 }
 
-h1 {
-  font-size: vw(97);
-  font-size: vh(80);
-}
-
 .app .item-todo {
   padding: 14px;
   width: 250px;
@@ -158,6 +153,7 @@ input {
 
 .app .item-delete {
   padding: 5px 18px;
-  background: #305c52;
+  background: #814cb9;
+  border-radius: 15px;
 }
 
