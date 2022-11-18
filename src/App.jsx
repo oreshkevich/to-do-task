@@ -3,7 +3,6 @@ import ToDo from './components/ToDo';
 import ToDoForm from './components/ToDoForm';
 
 function App() {
-  // const [todos, setTodos] = useState([]);
   const [todos, setTodos] = useState(() => {
     return JSON.parse(localStorage.getItem('todos')) || [];
   });
